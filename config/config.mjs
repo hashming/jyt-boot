@@ -19,6 +19,7 @@ const pathDeptList = '/product/departments'
 const pathUser = '/user/account'
 const pathProductList = '/product/list/v2'
 const pathProductDetail = '/product/dic/detail/v2'
+const pathProductConfirm = '/product/confirm'
 export default {
   urls: {
     hosList: pathHosList,
@@ -27,14 +28,16 @@ export default {
     check: pathCheck,
     user: pathUser,
     productList: pathProductList,
-    productDetail: pathProductDetail
+    productDetail: pathProductDetail,
+    productConfirm: pathProductConfirm
   },
   headers: {
     'Host': 'wechat.benmu-health.com',
     'Accept': 'application/json, text/plain, */*',
     'User-Agent': 'Mozilla/5.0 (Linux; Android 9; MIX 2S Build/PKQ1.180729.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044504 Mobile Safari/537.36 MMWEBID/7711 MicroMessenger/7.0.3.1400(0x2700033A) Process/tools NetType/WIFI Language/zh_CN',
     'Referer': 'https://wechat.benmu-health.com/wechatV2/',
-    'Accept-Language': 'zh-CN,en-US;q=0.9'
+    'Accept-Language': 'zh-CN,en-US;q=0.9',
+    'Cookie': '_ucp=GA9VqksmdIHsUIoUSMaoNN5FlXOyVdx6gET1d7OxJA0041wA1e3Q6UrNP_AxcG1OOrP02A..'
   },
   tokenUrls: [
     pathProductList, 

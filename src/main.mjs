@@ -57,6 +57,7 @@ inquirer.prompt([
 ])
 .then((ansUcp) => {
   request.setUcp(ansUcp.ucp)
+  // request.setUcp("iCN_fYBMEq1HXvoFKe_b20dm-5fxd7KOFplsZuHcr724EuC4JcJXtmFZJDQJOo1yxTihpw..")
   return request.getHosList()
 })
 .then(hosList => inquirer.prompt([

@@ -15,6 +15,7 @@
 
 import md5 from './md5'
 import _isUndefined from 'lodash/isUndefined';
+
 /**
  * [getParamsToken 验签 hubi 写的逻辑]
  * @author songqi
@@ -53,15 +54,16 @@ export default function getParamsToken(options) {
             paramsStr += '&';
         }
     });
+    console.log("paramsStr 最终为："+paramsStr)
     params['xa7w6pf'] = md5(paramsStr);
-    if(options.type.toUpperCase() === 'POST' && params['data']){
+    if (options.type.toUpperCase() === 'POST' && params['data']) {
         delete params['data'];
     }
-    for(var j in params){
+    for (var j in params) {
         sendParams += j + '=' + encodeURIComponent(decodeURIComponent(params[j])) + '&';
     }
     sendParams = sendParams.slice(0, sendParams.length - 1);
-    if(options.type.toUpperCase() === 'POST'){
+    if (options.type.toUpperCase() === 'POST') {
         return {
             url: sendParams,
             data: options.data

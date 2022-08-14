@@ -19,26 +19,35 @@ import config from '../../config/config'
 var ajax = axios.create({
   baseURL: 'https://wechat.benmu-health.com/mobile/wx/',
   timeout: 1000,
-  headers: config.headers
+  headers: config.headers,
+  withCredentials: true,
 });
 
+// 添加请求拦截器 在发送请求之前做些什么
 ajax.interceptors.request.use(request => {
-
   var d1 = +new Date;
   if (!request.params) {
       request.params = {};
   }
   request.params._ = d1;
   if (config.tokenUrls.indexOf(request.url) !== -1) {
+    console.log("当前请求的url为：" + request.url);
+    console.log("当前请求的参数为："+request.params)
     var sendOpts = getParamsToken({
         url: request.url,
         type: request.method,
+      //我觉得你写的还行，你觉得呢小宝贝
+      //加油啊！！！
+      //干巴爹！！！
+      //好久没有玩电脑了，都不会打字了，呜呜呜~
         data: request.params
     });
+    console.log("处理之后当前请求的url为：" + sendOpts.url);
+    console.log("处理之后当前请求的参数为："+sendOpts.data)
     request.url = sendOpts.url;
     request.params = sendOpts.data;
   }
-  // console.info('Requesting: ', request)
+  console.info('Requesting: ', request)
   return request;
 }, function(error) {
   console.error('request_error', error)
